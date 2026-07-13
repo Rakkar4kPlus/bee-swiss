@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "C:\\Users\\Nils\\Desktop\\Projekt WEBSITE\\.claude\\dev-server.cmd",
+      "runtimeArgs": [],
+      "port": 3000
+    }
+  ]
+}

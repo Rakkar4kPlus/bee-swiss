@@ -1,0 +1,23 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyfade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0c15c"/>
+      <stop offset="100%" stop-color="#d9971f"/>
+    </linearGradient>
+    <pattern id="hex" width="86.6" height="100" patternUnits="userSpaceOnUse" patternTransform="scale(1.6)">
+      <polygon points="43.3,0 86.6,25 86.6,75 43.3,100 0,75 0,25" fill="none" stroke="#fdf8ec" stroke-opacity="0.18" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#skyfade)"/>
+  <rect width="1600" height="900" fill="url(#hex)"/>
+  <g opacity="0.85">
+    <ellipse cx="1250" cy="700" rx="500" ry="260" fill="#935a16" opacity="0.35"/>
+    <ellipse cx="250" cy="780" rx="450" ry="220" fill="#653e19" opacity="0.3"/>
+  </g>
+  <g transform="translate(1180,420)">
+    <ellipse cx="0" cy="0" rx="70" ry="48" fill="#2b2118"/>
+    <path d="M-70 -18 h140 v16 h-140z M-60 8 h120 v16 h-120z" fill="#f0c15c"/>
+    <path d="M-70 -10 c-60 -40 -60 40 0 40z" fill="#fdf8ec" opacity="0.5"/>
+    <path d="M70 -10 c60 -40 60 40 0 40z" fill="#fdf8ec" opacity="0.5"/>
+  </g>
+</svg>

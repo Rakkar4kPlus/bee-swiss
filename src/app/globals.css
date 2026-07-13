@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffaf0;
+  --foreground: #2b2118;
+
+  --color-honey-50: #fdf8ec;
+  --color-honey-100: #faedc8;
+  --color-honey-200: #f5da96;
+  --color-honey-300: #f0c15c;
+  --color-honey-400: #eaa834;
+  --color-honey-500: #d9971f;
+  --color-honey-600: #b97817;
+  --color-honey-700: #935a16;
+  --color-honey-800: #784a19;
+  --color-honey-900: #653e19;
+
+  --color-cream-50: #fffdf8;
+  --color-cream-100: #fff9ef;
+  --color-cream-200: #fbf0dc;
+
+  --color-ink-700: #3a3128;
+  --color-ink-800: #2b2118;
+  --color-ink-900: #1c1610;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-honey-50: var(--color-honey-50);
+  --color-honey-100: var(--color-honey-100);
+  --color-honey-200: var(--color-honey-200);
+  --color-honey-300: var(--color-honey-300);
+  --color-honey-400: var(--color-honey-400);
+  --color-honey-500: var(--color-honey-500);
+  --color-honey-600: var(--color-honey-600);
+  --color-honey-700: var(--color-honey-700);
+  --color-honey-800: var(--color-honey-800);
+  --color-honey-900: var(--color-honey-900);
+
+  --color-cream-50: var(--color-cream-50);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-900: var(--color-ink-900);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces);
+}
+
+body {
+  background: var(--color-cream-100);
+  color: var(--color-ink-800);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), Georgia, serif;
+}

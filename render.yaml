@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: bee-swiss
+    runtime: node
+    plan: starter
+    region: frankfurt
+    buildCommand: npm install && npm run build
+    startCommand: >-
+      mkdir -p /data/uploads &&
+      rm -rf public/uploads &&
+      ln -s /data/uploads public/uploads &&
+      npx prisma migrate deploy &&
+      npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: DATABASE_URL
+        value: file:/data/dev.db
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_NAME
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      - key: CONTACT_NOTIFICATION_EMAIL
+        sync: false
+    disk:
+      name: bee-swiss-data
+      mountPath: /data
+      sizeGB: 1
