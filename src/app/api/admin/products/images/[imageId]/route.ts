@@ -3,6 +3,7 @@ import { unlink } from "node:fs/promises";
 import path from "node:path";
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/auth";
+import { getUploadDir } from "@/lib/uploads";
 
 export async function PATCH(
   _request: Request,
@@ -45,7 +46,8 @@ export async function DELETE(
 
   if (image.url.startsWith("/uploads/")) {
     try {
-      await unlink(path.join(process.cwd(), "public", image.url));
+      const relativePath = image.url.replace(/^\/uploads\//, "");
+      await unlink(path.join(getUploadDir(), relativePath));
     } catch {
       // Datei bereits entfernt oder nicht auffindbar - ignorieren
     }

@@ -4,6 +4,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { prisma } from "@/lib/prisma";
 import { getAdminSession } from "@/lib/auth";
+import { getUploadDir } from "@/lib/uploads";
 
 const ALLOWED_TYPES: Record<string, string> = {
   "image/jpeg": "jpg",
@@ -44,7 +45,7 @@ export async function POST(
     return NextResponse.json({ error: "Die Datei ist zu gross (max. 6 MB)." }, { status: 400 });
   }
 
-  const uploadDir = path.join(process.cwd(), "public", "uploads", "products", productId);
+  const uploadDir = path.join(getUploadDir(), "products", productId);
   await mkdir(uploadDir, { recursive: true });
 
   const filename = `${randomUUID()}.${extension}`;

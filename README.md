@@ -68,6 +68,7 @@ verloren, die Anfrage bleibt trotzdem im Admin-Bereich sichtbar.
 | Variable | Zweck |
 | --- | --- |
 | `DATABASE_URL` | Pfad zur SQLite-Datenbankdatei |
+| `UPLOAD_DIR` | Ordner für hochgeladene Produktbilder (optional, Standard: `./uploads` im Projekt) — in Produktion auf einen persistenten Pfad setzen |
 | `AUTH_SECRET` | Signiert die Login-Sessions — vor dem Live-Gang durch einen eigenen zufälligen Wert ersetzen |
 | `ADMIN_EMAIL` / `ADMIN_PASSWORD` / `ADMIN_NAME` | Initialer Admin-Zugang (wird per Seed-Skript angelegt) |
 | `SMTP_*`, `CONTACT_NOTIFICATION_EMAIL` | Optionaler Mailversand |
