@@ -4,24 +4,17 @@ import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProductCard } from "@/components/ProductCard";
 import { getFeaturedProducts } from "@/lib/products";
-
-const USPS = [
-  {
-    title: "Naturrein aus Basel",
-    text: "Unsere Bienenvölker stehen rund um Basel — kurze Wege, volle Frische.",
-  },
-  {
-    title: "Handwerklich erzeugt",
-    text: "Kaltgeschleudert und schonend abgefüllt, ohne Zusätze.",
-  },
-  {
-    title: "Direkt vom Imker",
-    text: "Kein Zwischenhandel — du kaufst direkt bei uns, mit Herz für die Biene.",
-  },
-];
+import { getSiteSettings } from "@/lib/settings";
 
 export default async function HomePage() {
   const featured = await getFeaturedProducts(4);
+  const settings = await getSiteSettings();
+
+  const usps = [
+    { title: settings.usp1Title, text: settings.usp1Text },
+    { title: settings.usp2Title, text: settings.usp2Text },
+    { title: settings.usp3Title, text: settings.usp3Text },
+  ];
 
   return (
     <div>
@@ -29,7 +22,7 @@ export default async function HomePage() {
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/placeholders/hero-banner.svg"
+            src={settings.heroImageUrl ?? "/placeholders/hero-banner.svg"}
             alt=""
             className="h-full w-full object-cover"
           />
@@ -37,15 +30,12 @@ export default async function HomePage() {
         </div>
         <Container className="relative flex min-h-[560px] flex-col justify-end gap-6 py-16">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-honey-200">
-            Imkerei in Basel
+            {settings.heroEyebrow}
           </p>
           <h1 className="max-w-xl font-display text-4xl font-semibold text-cream-50 sm:text-5xl">
-            Bee Swiss — naturrein, regional, mit Liebe zur Biene
+            {settings.heroTitle}
           </h1>
-          <p className="max-w-lg text-cream-100/90">
-            Wir sind eine kleine Imkerei in Basel und verkaufen unseren Honig
-            sowie sanftmütige Bienenköniginnen direkt ab Hof.
-          </p>
+          <p className="max-w-lg text-cream-100/90">{settings.heroSubtitle}</p>
           <div className="flex flex-wrap gap-4">
             <Button href="/produkte" variant="primary">
               Produkte entdecken
@@ -59,7 +49,7 @@ export default async function HomePage() {
 
       <section className="border-b border-honey-200/60 bg-honey-50">
         <Container className="grid gap-8 py-12 sm:grid-cols-3">
-          {USPS.map((usp) => (
+          {usps.map((usp) => (
             <div key={usp.title}>
               <h3 className="font-display text-lg font-semibold text-ink-900">
                 {usp.title}
@@ -93,12 +83,9 @@ export default async function HomePage() {
       <section className="bg-honey-900 text-cream-100">
         <Container className="flex flex-col items-center gap-6 py-20 text-center">
           <h2 className="font-display text-3xl font-semibold text-cream-50 sm:text-4xl">
-            Fragen zu Honig oder Bienenköniginnen?
+            {settings.ctaTitle}
           </h2>
-          <p className="max-w-xl text-cream-100/80">
-            Melde dich gerne über unser Kontaktformular — wir antworten
-            schnellstmöglich.
-          </p>
+          <p className="max-w-xl text-cream-100/80">{settings.ctaText}</p>
           <Link
             href="/kontakt"
             className="inline-flex items-center justify-center rounded-full bg-honey-500 px-6 py-3 text-sm font-medium text-cream-50 hover:bg-honey-400"

@@ -99,3 +99,37 @@ model ContactMessage {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+// Einzige Zeile (Singleton, id fest "singleton") mit den redigierbaren
+// Texten/Bildern der öffentlichen Seiten (Start, Über uns, Kontakt, Footer).
+model SiteSettings {
+  id String @id @default("singleton")
+
+  heroEyebrow  String @default("Imkerei in Basel")
+  heroTitle    String @default("Bee Swiss — naturrein, regional, mit Liebe zur Biene")
+  heroSubtitle String @default("Wir sind eine kleine Imkerei in Basel und verkaufen unseren Honig sowie sanftmütige Bienenköniginnen direkt ab Hof.")
+  heroImageUrl String?
+
+  usp1Title String @default("Naturrein aus Basel")
+  usp1Text  String @default("Unsere Bienenvölker stehen rund um Basel — kurze Wege, volle Frische.")
+  usp2Title String @default("Handwerklich erzeugt")
+  usp2Text  String @default("Kaltgeschleudert und schonend abgefüllt, ohne Zusätze.")
+  usp3Title String @default("Direkt vom Imker")
+  usp3Text  String @default("Kein Zwischenhandel — du kaufst direkt bei uns, mit Herz für die Biene.")
+
+  ctaTitle String @default("Fragen zu Honig oder Bienenköniginnen?")
+  ctaText  String @default("Melde dich gerne über unser Kontaktformular — wir antworten schnellstmöglich.")
+
+  aboutTitle    String  @default("Unsere Imkerei in Basel")
+  aboutText     String  @default("Bee Swiss ist eine kleine, familiengeführte Imkerei in Basel. Was als Hobby mit wenigen Völkern begann, ist heute eine Leidenschaft, die wir mit Sorgfalt und Respekt vor der Natur betreiben.\n\nUnsere Bienenvölker stehen an sonnigen, blütenreichen Standorten rund um Basel. Wir schleudern unseren Honig kalt und schonend, füllen ihn direkt ab und verzichten bewusst auf jegliche Zusätze — so bleibt der volle, natürliche Geschmack erhalten.\n\nNeben Honig züchten wir auch eigene Bienenköniginnen. Uns ist wichtig, dass unsere Völker sanftmütig, gesund und widerstandsfähig sind — Eigenschaften, die wir bei der Zucht gezielt fördern.\n\nWir freuen uns, wenn du unsere Produkte probierst — direkt ab Hof, im Onlineshop oder auf Anfrage.")
+  aboutImageUrl String?
+
+  contactIntro   String @default("Fragen zu Honig, Bienenköniginnen oder einer grösseren Bestellung? Wir freuen uns von dir zu hören.")
+  contactEmail   String @default("info@bee-swiss.ch")
+  contactAddress String @default("Basel, Schweiz")
+  openingHours   String @default("Hofladen: Samstag 09:00–12:00 Uhr, oder nach Vereinbarung")
+
+  footerTagline String @default("Naturreiner Honig und Bienenköniginnen direkt vom Imker aus Basel — handwerklich erzeugt, mit Liebe zur Biene.")
+
+  updatedAt DateTime @updatedAt
+}
